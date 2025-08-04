@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Code == Art</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -13,12 +13,79 @@
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
+    <style>
+        .fragment.zoom {
+            transition: 1s ease;
+            transform: scale(1.0);
+        }
+        .fragment.zoom.current-fragment {
+            transform: scale(3.0);
+            overflow: hidden;
+            transition: 1s ease;
+        }
+        .fragment.unzoom {
+            transition: 1s ease;
+        }
+        .fragment.unzoom.current-fragment {
+            transform: scale(1.0);
+            overflow: hidden;
+            transition: 1s ease;
+        }
+        .reveal img {
+            margin: 0;
+            vertical-align: middle;
+            /* transition: 1s ease; */
+        }
+        .reveal img:hover {
+            /* transform: scale(3.0);
+            overflow: hidden;
+            transition: 1s ease; */
+        }
+        .info {
+            position: absolute;
+            left: 20%;
+            top: 80%;
+            color: white;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+        .tag {
+            font-size: 0.6em;
+            color: #888;
+            text-align: left;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+    </style>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+
+<section>
+    Danielle Navarro <br />
+    <em>Water Colours</em>, 2021<br />
+    <div class="tag">
+        License: CC0 1.0 <br />
+        Repository: <a href="https://github.com/djnavarro/series-water-colours">djnavarro/series-water-colours</a>
+    </div><br />
+</section>
+
+<section>
+    <section>
+        <div class="fragment custom zoom">
+            <img src="gfx/watercolor/watercolour_sys02_img57_portal.jpg" width="720">
+        </div>
+        <div class="fragment fade-up info"><em>Portal</em></div>
+    </section>
+    <section>Slide 2</section>
+</section>
+
+<section>
+    Slide 3
+</section>
+
+            </div>
 		</div>
 
 		<script src="dist/reveal.js"></script>
