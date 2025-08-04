@@ -1,71 +1,77 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Code == Art</title>
+<title>Code == Art</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+<link rel="stylesheet" href="dist/reset.css">
+<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/black.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-    <style>
-        .fragment.zoom {
-            transition: 1s ease;
-            transform: scale(1.0);
-        }
-        .fragment.zoom.current-fragment {
-            transform: scale(3.0);
-            overflow: hidden;
-            transition: 1s ease;
-        }
-        .fragment.unzoom {
-            transition: 1s ease;
-        }
-        .fragment.unzoom.current-fragment {
-            transform: scale(1.0);
-            overflow: hidden;
-            transition: 1s ease;
-        }
-        .reveal img {
-            margin: 0;
-            vertical-align: middle;
-            /* transition: 1s ease; */
-        }
-        .reveal img:hover {
-            /* transform: scale(3.0);
-            overflow: hidden;
-            transition: 1s ease; */
-        }
-        .info {
-            position: absolute;
-            left: 20%;
-            top: 80%;
-            color: white;
-            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-        }
-        .commentary {
-            font-size: 0.8em;
-            text-align: left;
-            margin: 100px !important;
-        }
-        .tag {
-            font-size: 0.6em;
-            color: #888;
-            text-align: left;
-            margin-top: 10px;
-            margin-left: auto;
-            margin-right: auto;
-            width: fit-content;
-        }
-    </style>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<style>
+    .fragment.zoom {
+        transition: 1s ease;
+        transform: scale(1.0);
+    }
+    .fragment.zoom.current-fragment {
+        transform: scale(3.0);
+        overflow: hidden;
+        transition: 1s ease;
+    }
+    .fragment.zoom_ll {
+        transition: 1s ease;
+        transform: scale(1.0);
+    }
+    .fragment.zoom_ll.current-fragment {
+        transform: scale(3.0) translate(100px, -100px);
+        overflow: hidden;
+        transition: 1s ease;
+    }
+    .fragment.zoom_r {
+        transition: 1s ease;
+        transform: scale(1.0);
+    }
+    .fragment.zoom_r.current-fragment {
+        transform: scale(3.0) translate(-200px, 0px);
+        overflow: hidden;
+        transition: 1s ease;
+    }
+    .reveal img {
+        margin: 0;
+        vertical-align: middle;
+    }
+    .info {
+        position: absolute;
+        left: 20%;
+        top: 80%;
+        color: white;
+        text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000, 2px 2px 2px #000;
+    }
+    .commentary {
+        font-size: 0.8em;
+        text-align: left;
+        margin: 100px !important;
+    }
+    .tag {
+        font-size: 0.6em;
+        color: #888;
+        text-align: left;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+</style>
+
+<body>
+
+<div class="reveal">
+<div class="slides">
 
 <section>
     Danielle Navarro <br />
@@ -89,11 +95,114 @@
 </section>
 
 <section>
-    Slide 3
+    <section>
+        <div class="fragment custom zoom_ll">
+            <img src="gfx/watercolor/watercolour_sys02_img67_woodland-spirits.jpg" width="720">
+        </div>
+        <div class="fragment fade-up info"><em>Woodland Spirits</em></div>
+    </section>
+    <section>
+        <p class="commentary">Is the swirl detail fractal or limited?</p>
+    </section>
 </section>
 
-            </div>
-		</div>
+<section>
+    <section>
+        <div class="fragment custom zoom_r">
+            <img src="gfx/watercolor/watercolour_sys02_img54_echo.jpg" width="720">
+        </div>
+        <div class="fragment fade-up info"><em>Echo</em></div>
+    </section>
+    <section>
+        <p class="commentary">Are the titles telling a story?</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <img src="gfx/watercolor/watercolour_sys02_img34_teacup-ocean.jpg" width="720">
+        <div class="fragment fade-up info"><em>Teacup Ocean</em></div>
+    </section>
+    <section>
+        <p class="commentary">Are the palettes randomly generated?</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <img src="gfx/watercolor/watercolour_sys02_img49_tonal-earth.jpg" width="720">
+        <div class="fragment fade-up info"><em>Tonal Earth</em></div>
+    </section>
+    <section>
+        <p class="commentary">Do all the pieces have the same contrast?</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <div class="fragment custom zoom">
+            <img src="gfx/watercolor/watercolour_sys02_img32_percolate.jpg" width="720">
+        </div>
+        <div class="fragment fade-up info"><em>Percolate</em></div>
+    </section>
+    <section>
+        <p class="commentary">How many seeds did the artist try and reject for each accepted work?</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <img src="gfx/watercolor/watercolour_sys02_img42_turmeric.jpg" width="720">
+        <div class="fragment fade-up info"><em>Turmeric</em></div>
+    </section>
+    <section>
+        <p class="commentary">Why are some color transitions smooth and others sharp?</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <img src="gfx/watercolor/watercolour_sys02_img50_cold-front.jpg" width="720">
+        <div class="fragment fade-up info"><em>Cold Front</em></div>
+    </section>
+    <section>
+        <p class="commentary">Wait, is this a map?</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <img src="gfx/watercolor/watercolour_sys02_img41_stormy-seas.jpg" width="720">
+        <div class="fragment fade-up info"><em>Stormy Seas</em></div>
+    </section>
+    <section>
+        <p class="commentary">This is absolutely a distorted picture of seas, isn't it?</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <img src="gfx/watercolor/watercolour_sys02_img37_gentle-descent.jpg" width="720">
+        <div class="fragment fade-up info"><em>Gentle Descent</em></div>
+    </section>
+    <section>
+        <p class="commentary">OK this seems more abstract again.</p>
+    </section>
+</section>
+
+<section>
+    <section>
+        <img src="gfx/watercolor/watercolour_sys02_img65_plume.jpg" width="720">
+        <div class="fragment fade-up info"><em>Plume</em></div>
+    </section>
+    <section>
+        <p class="commentary">Are the titles being thought up after a random image is generated? Or not?</p>
+    </section>
+</section>
+
+
+</div>
+</div>
 
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
