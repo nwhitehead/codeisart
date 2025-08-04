@@ -14,6 +14,10 @@
 <link rel="stylesheet" href="plugin/highlight/monokai.css">
 </head>
 <style>
+    @font-face {
+        font-family: Reey;
+        src: url("gfx/fonts/Reey-Regular.otf") format("opentype");
+    }
     .fragment.zoom {
         transition: 1s ease;
         transform: scale(1.0);
@@ -66,12 +70,32 @@
         margin-right: auto;
         width: fit-content;
     }
+    .reveal .reey {
+        font-family: Reey;
+        text-transform: none;
+        font-weight: 200;
+    }
+    .reveal .title {
+        color: #ffa;
+        font-size: 2em;
+    }
+    .reveal .big {
+        font-size: 2em;
+    }
 </style>
 
 <body>
 
 <div class="reveal">
 <div class="slides">
+
+<section data-background-image="gfx/bg2.png">
+    <h2 class="reey title">code == art</h2>
+    <small><p>Nathan Whitehead presents<br /><br />
+       <span class="reey big">Danielle Navarro</span><br /><br /><br /><br />
+       Aug. 6, 2025
+    </p></small>
+</section>
 
 <section>
     Danielle Navarro <br />
