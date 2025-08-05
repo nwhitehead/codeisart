@@ -284,6 +284,79 @@
     </section>
 </section>
 
+<!-- MISC -->
+
+<section>
+    Danielle Navarro <br />
+    <em>Voronoise</em>, 2020<br />
+    <div class="tag">
+        License: CC BY 4.0 <br />
+        Repository: <a href="https://github.com/djnavarro/series-voronoise">djnavarro/series-voronoise</a> <br />
+        Presented in part (1/8 images)
+    </div><br />
+</section>
+
+<section>
+    <section>
+        <div class="fragment custom zoom">
+            <img src="gfx/misc/voronoise_17_0.png" width="720">
+        </div>
+        <div class="fragment fade-up info"><em>Voronoise 17 0</em></div>
+    </section>
+    <section>
+        <p class="commentary">This one has a cartoony feel, reminds me of underwater caustics at a pool.</p>
+    </section>
+</section>
+
+<section>
+    Danielle Navarro <br />
+    <em>Stone Skip</em>, 2020<br />
+    <div class="tag">
+        License: CC BY 4.0 <br />
+        Repository: <a href="https://github.com/djnavarro/series-stoneskip">djnavarro/series-stoneskip</a> <br />
+        Presented in part (1/20 images)
+    </div><br />
+</section>
+
+<section>
+    <section>
+        <div class="fragment custom zoom">
+            <img src="gfx/misc/stoneskip_01_115.png" width="720">
+        </div>
+        <div class="fragment fade-up info"><em>Stone Skip 01 115</em></div>
+    </section>
+    <section>
+        <p class="commentary">Starts with random noise, uses cellular automaton to copy colors by jumps.<br /><br />
+        First work to integrate C++ extension to R for accelerated iterations.
+        </p>
+    </section>
+</section>
+
+<section>
+    Danielle Navarro <br />
+    <em>Dust</em>, 2020<br />
+    <div class="tag">
+        License: CC BY 4.0 <br />
+        Repository: <a href="https://github.com/djnavarro/series-dust">djnavarro/series-dust</a> <br />
+        Presented in part (1/8 images)
+    </div><br />
+</section>
+
+<section>
+    <section>
+        <div class="fragment custom zoom_u">
+            <img src="gfx/misc/dust_03_0.png" width="720">
+        </div>
+        <div class="fragment fade-up info"><em>Dust 03</em></div>
+    </section>
+    <section>
+        <p class="commentary">The recurring heart!<br /><br />
+        Heart and functions used here are collected in <a href="https://jasmines.djnavarro.net/index.html">jasmines</a> package.
+        Technique is to follow a curl noise field over timesteps (Euler steps).
+        </p>
+    </section>
+</section>
+
 <!-- ADVENT -->
 
 <section>
@@ -566,6 +639,31 @@
     <section>
         <p class="commentary"></p>
     </section>
+</section>
+
+
+<!-- TECHNIQUES -->
+
+<section data-markdown>
+    <textarea data-template>
+```R stretch
+#' @export
+#' @rdname entitytype
+entity_heart <- function(seed = use_seed(1), grain = 50,
+                         id = NULL, ...) {
+  th <- radians(grain)
+  x <- (16 * sin(th)^3) / 17
+  y <- (13 * cos(th) - 5 * cos(2*th) -
+       2 * cos(3*th) - cos(4*th)) / 17
+  x <- x - mean(x)
+  y <- y - mean(y)
+  entity <- new_entity(x = x, y = y, id = id, seed = seed,
+                       type = "heart")
+  entity <- locate_entity(entity, ...)
+  return(entity)
+}
+```
+    </textarea>
 </section>
 
 
