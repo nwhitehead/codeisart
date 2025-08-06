@@ -77,6 +77,9 @@
     .left {
         left: 0 !important;
     }
+    .up {
+        top: 70% !important;
+    }
     .commentary {
         font-size: 0.8em;
         text-align: left;
@@ -113,6 +116,11 @@
         color: #aaa;
         list-style-type: none;
         font-size: 0.8em;
+    }
+    .citation {
+        font-size: 0.5em;
+        line-height: 0.5em;
+        color: #aaa;
     }
 </style>
 
@@ -1017,7 +1025,7 @@
 <section>
     <section>
         <img src="gfx/menacing/languid_18_2762.jpg" width="720">
-        <div class="fragment fade-up info left">II. Rage<br /><em>making my stupid art as if somehow it will make me feel better about fascism</em></div>
+        <div class="fragment fade-up info left up">II. Rage<br /><em>making my stupid art as if somehow it will make me feel better about fascism</em></div>
     </section>
     <section>
         <p class="commentary">
@@ -1029,7 +1037,7 @@
 <section>
     <section>
         <img src="gfx/menacing/languid_20_2909.jpg" width="720">
-        <div class="fragment fade-up info left">II. Rage<br /><em>waving tiny rainbow flags as the gender traitors are herded towards the gallows</em></div>
+        <div class="fragment fade-up info left up">II. Rage<br /><em>waving tiny rainbow flags as the gender traitors are herded towards the gallows</em></div>
     </section>
     <section>
         <p class="commentary">
@@ -1041,7 +1049,7 @@
 <section>
     <section>
         <img src="gfx/menacing/languid_14_2374.jpg" width="720">
-        <div class="fragment fade-up info">II. Rage<br /><em>her rapist got her pronouns right this time</em></div>
+        <div class="fragment fade-up info left">II. Rage<br /><em>her rapist got her pronouns right this time</em></div>
     </section>
     <section>
         <p class="commentary">
@@ -1053,7 +1061,7 @@
 <section>
     <section>
         <img src="gfx/menacing/languid_31_3119.jpg" width="720">
-        <div class="fragment fade-up info">III. Shame<br /><em>wants me to tell him something pretty</em></div>
+        <div class="fragment fade-up info left">III. Shame<br /><em>wants me to tell him something pretty</em></div>
     </section>
     <section>
         <p class="commentary">
@@ -1090,7 +1098,7 @@
 <section>
     <section>
         <img src="gfx/menacing/languid_37_3702.jpg" width="720">
-        <div class="fragment fade-up info left">IV. Dread<br /><em>dreamless eternal night awaited her, for she had no soul and had not been able to win one</em></div>
+        <div class="fragment fade-up info left up">IV. Dread<br /><em>dreamless eternal night awaited her, for she had no soul and had not been able to win one</em></div>
     </section>
     <section>
         <p class="commentary">
@@ -1102,7 +1110,7 @@
 <section>
     <section>
         <img src="gfx/menacing/languid_40_4015.jpg" width="720">
-        <div class="fragment fade-up info">V. Hope<br /><em>isolated motel room on a wintry night</em></div>
+        <div class="fragment fade-up info left">V. Hope<br /><em>isolated motel room on a wintry night</em></div>
     </section>
     <section>
         <p class="commentary">
@@ -1307,6 +1315,85 @@ jas %>% ggplot_themed() + geom_point(
     From <a href="https://www.tylerxhobbs.com/words/flow-fields">Flow Fields (Tyler Hobbs)</a>
 </section>
 
+<section data-markdown>
+    <textarea data-template>
+Field is 2D matrix of angles (simplest representation)
+```py
+import numpy as np
+import math
+flow = np.ones((100, 100)) * 0.25 * math.pi
+```
+<img src="gfx/flow1.png" width="600px">
+</textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+Use a fixed formula
+```py
+np.fromfunction(lambda i, j: i / 100 * math.pi, (100, 100))
+```
+<img src="gfx/flow2.png" width="600px">
+</textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+Start at point, follow field to make curve.
+<img src="gfx/flow3.png" width="600px">
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+```py
+x = 10
+y = 10
+stepsize = 0.2
+for i in range(iterations):
+    # Lookup nearest angle
+    col_index = int(x / 100)
+    row_index = int(y / 100)
+    angle = flow[row_index][col_index]
+    # Move a step in that direction
+    x += stepsize * math.cos(angle)
+    y += stepsize * math.sin(angle)
+```
+</textarea>
+</section>
+
+<section>
+    <em>Water Colour</em> uses a noisy field.<br />
+    Adds layers of Simplex noise at different scales.<br />
+    <img src="gfx/simplex.png" width="400px">
+    <p>Example Simplex noise at single scale.</p>
+</section>
+
+<section>
+    <img src="gfx/2D_pink_noise.png" width="400px">
+    <p>Multiple copies of noise with 1/f intensity.</p>
+</section>
+
+<section>
+    <img src="gfx/perlinfield.png" width="600px">
+    <p>Tracing random points in noisy field.</p>
+</section>
+
+<section>
+    <small><em>Water Colour</em> traces paths for pixels, want a conservative field (don't create or destroy pixels, just move).</small>
+    <p>
+        <ul>
+            <li>Create noisy scalar field (heightmap) Ψ</li>
+            <li>Take curl of field to get velocities (directions)</li>
+        </ul>
+    </p>
+    <img src="gfx/curl.png" width="200px">
+    <p>Incompressible fluid flow (like water)</p>
+    <p class="citation">Bridson, Robert. Hourihan, Jim. Nordenstam, Marcus (2007). <em>Curl-noise for procedural fluid flow</em>.
+        ACM Transactions on Graphics 26(3): 46.</p>
+</section>
+
+
 <section>
     <section>
         <div class="r-stack">
@@ -1319,6 +1406,7 @@ jas %>% ggplot_themed() + geom_point(
     <section>
         <p class="commentary">
             I believe this is an iphone picture of a sink with food coloring drops, photo capturing the iphone and drain.
+            You can see room reflections, other art hanging on walls in reflection.
         </p>
     </section>
 </section>
@@ -1337,6 +1425,20 @@ jas %>% ggplot_themed() + geom_point(
             Artist says photo was of cup of water with food coloring drops added.
         </p>
     </section>
+</section>
+
+<!-- <section>
+    My Conclusions
+    <ul>
+        <li><em>R</em> has lots of packages, you can use it for real art</li>
+        <li>I personally don't like <em>R</em>, just don't get it</li>
+        <li>Layering algorithms and techniques is way to go</li>
+        <li>Need compiled language for detailed pixel manipulation</li>
+    </ul>
+</section> -->
+
+<section>
+    The End
 </section>
 
 </div>
