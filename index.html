@@ -859,8 +859,13 @@
 
 <!-- TECHNIQUES -->
 
+<section>
+    <p>Computational Techniques</p>
+</section>
+
 <section data-markdown>
     <textarea data-template>
+Original R code for heart shape:
 ```R stretch
 #' @export
 #' @rdname entitytype
@@ -881,6 +886,26 @@ entity_heart <- function(seed = use_seed(1), grain = 50,
     </textarea>
 </section>
 
+<section data-markdown>
+    <textarea data-template>
+Translation into Python:
+```py stretch
+import matplotlib.pyplot as plt
+import numpy as np
+import math
+th = np.linspace(0, 2 * math.pi, 100)
+x = (16 * np.sin(th) ** 3) / 17
+y = (13 * np.cos(th) - 5 * np.cos(2 * th)
+    - 2 * np.cos(3 * th) - np.cos(4 * th)) / 17
+x = x - np.mean(x)
+y = y - np.mean(y)
+
+plt.plot(x, y)
+```
+<img src="gfx/heart.png" width="400px">
+<a href="https://colab.research.google.com/drive/1otQgH8mVrfmwLKC1JP_o4SwuGMb43KLK?usp=sharing">Colab link</a>
+</textarea>
+</section>
 
 </div>
 </div>
