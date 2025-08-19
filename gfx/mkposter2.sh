@@ -6,10 +6,9 @@
 ffmpeg \
     -y \
     -i poster2.png \
-    -i clouds.webm \
+    -i clouds.mp4 \
     -loop 0 \
     -filter_complex "[0:v]scale=400:-1[txt];[1:v]scale=400:-1[cld];[txt][cld]overlay=0:350[ovr]" \
     -map '[ovr]' \
-    -pix_fmt rgb8 \
-    poster2.gif \
-&& eog poster2.gif
+    poster2.mp4 \
+&& mplayer poster2.mp4
