@@ -16,14 +16,13 @@ vec3 fbm3(vec3 x, int iters, float fratio, float wratio) {
 
 void main()
 {
-   vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
-   vec2 st = gl_FragCoord.xy / u_resolution.xy;
-   vec3 p = gl_FragCoord.xyz / u_resolution.x;
+    vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
+    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+    vec3 p = gl_FragCoord.xyz / u_resolution.x;
     p.z = u_time * 0.03;
-   //vec3 p2 = fbm3(fbm3(p * 2.0, 8, 2.0, 0.5) * 0.5 + p * 10.0 + vec3(2.2, 0.0, 0.0) * u_time * 0.0, 8, 2.0, 0.5);
-   vec3 p2 = fbm3(0.1 * fbm3(0.5 * fbm3(p * 2.0, 8, 2.0, 0.5) * 0.5 + p * 10.0, 8, 2.0, 0.5), 8, 2.0, 0.5);
-   float n = p2.y;
-   color = vec4(1.0, 1.0, 1.0, 1.0) * n;
-
-   gl_FragColor = color;
+    //vec3 p2 = fbm3(fbm3(p * 2.0, 8, 2.0, 0.5) * 0.5 + p * 10.0 + vec3(2.2, 0.0, 0.0) * u_time * 0.0, 8, 2.0, 0.5);
+    vec3 p2 = fbm3(0.1 * fbm3(0.5 * fbm3(p * 2.0, 8, 2.0, 0.5) * 0.5 + p * 10.0, 8, 2.0, 0.5), 8, 2.0, 0.5);
+    float n = p2.y;
+    color = vec4(1.0, 1.0, 1.0, 1.0) * p.x;
+    gl_FragColor = color;
 }
