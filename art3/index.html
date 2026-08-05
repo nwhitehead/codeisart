@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaders</title>
+    <style>
+        main {
+            position: relative;
+            height: 100vh;
+            z-index: 0;
+        }
+        canvas {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            transform: translate(-50%,-50%);
+            z-index: 0;
+        }
+        #buttons {
+            position: absolute;
+            top: 5%;
+            z-index: 1;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+  </head>
+  <body style="background-color: #000;">
+    <main id="app">
+        <canvas id="glslCanvas" width="1280" height="768"></canvas>
+    </main>
+    <script type="module" src="/shaders/main.ts"></script>
+    <div id="buttons" style="display: flex; flex-direction: row;"></div>
+  </body>
+</html>
