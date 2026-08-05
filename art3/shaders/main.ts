@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const f = () => {
             sandbox.load(prefix + shaderSrc);
             sandbox.loadTexture('../gfx/stars.png');
+            sandbox.setUniform('u_tex0', '../gfx/stars.png');
             //sandbox.loadTexture(photo);
             console.log('texture loaded');
         };

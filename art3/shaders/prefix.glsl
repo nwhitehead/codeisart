@@ -4,7 +4,7 @@ precision mediump float;
 
 uniform vec2 u_resolution;
 uniform float u_time;
-
+uniform sampler2D u_tex0;
 
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 @nataliew
