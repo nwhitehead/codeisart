@@ -1,7 +1,6 @@
 import GlslCanvas from 'glslCanvas';
 import prefix from './prefix.glsl?raw';
-import nested from './nested.glsl?raw';
-import photo from '../gfx/stars.png';
+import nested from './conv.glsl?raw';
 
 document.addEventListener("DOMContentLoaded", (event) => {
     for (const el of document.getElementsByTagName('button')) {
@@ -15,9 +14,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         el.innerText = name;
         const f = () => {
             sandbox.load(prefix + shaderSrc);
-            sandbox.loadTexture('../gfx/stars.png');
             sandbox.setUniform('u_tex0', '../gfx/stars.png');
-            //sandbox.loadTexture(photo);
             console.log('texture loaded');
         };
         el.addEventListener('click', f);
