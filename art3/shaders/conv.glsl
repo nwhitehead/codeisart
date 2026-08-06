@@ -20,10 +20,15 @@ void main()
 {
     vec3 p = gl_FragCoord.xyz / u_resolution.x;
     p.z = u_time * 0.005;
-    float csz = 8.0 / u_resolution.x;
+    vec3 ps = p;
+    float csz = 2.0 / u_resolution.x;
     vec4 col = vec4(0.0);
     vec2 toff = fbm3(vec3(p.xy, u_time), 8, 2.0, 0.5).xy * 0.01;
-    vec3 p2 = fbm3(0.1 * fbm3(0.5 * fbm3(p * 2.0, 8, 2.0, 0.5) * 0.5 + p * 10.0, 8, 2.0, 0.5), 8, 2.0, 0.5);
-    col += texture2D(u_tex0, p.xy + p2.xy * 0.05);
+    vec3 p2 = fbm3(0.1 * fbm3(0.5 * fbm3(ps * 2.0, 8, 2.0, 0.5) * 0.5 + ps * 10.0, 8, 2.0, 0.5), 8, 2.0, 0.5);
+    for (int i = 0; i < C; i++) {
+        for (int j = 0; j < C; j++) {
+            col += texture2D(u_tex0, p.xy + p2.xy * 0.05 + vec2(float(i) * csz, float(j) * csz)) * (1.0 / float(C) / float(C));
+        }
+    }
     gl_FragColor = col;
 }
