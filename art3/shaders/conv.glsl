@@ -1,4 +1,4 @@
-const int C = 7;
+const int C = 5;
 const float PI = 3.14159265;
 
 vec3 fbm3(vec3 x, int iters, float fratio, float wratio) {
@@ -28,7 +28,9 @@ void main()
         for (int j = -C/2; j <= C/2; j++) {
             vec2 uvo = vec2(float(i), float(j)) / float(C/2);
             float d = length(uvo);
-            float coeff = norma * norma * exp(-a * d*d);
+            //float coeff = norma * norma * exp(-a * d*d);
+            //float coeff = fbm3(vec3(uvo * 1000.01, u_time), 8, 2.0, 0.5).y;
+            float coeff = fbm3(vec3(uvo.xy * 100.0, u_time), 8, 2.0, 0.5).y;
             col += coeff * texture2D(u_tex0, p.xy + uvo * csz);
         }
     }

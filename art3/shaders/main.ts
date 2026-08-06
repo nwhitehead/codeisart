@@ -23,5 +23,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const buttonRow = document.getElementById('buttons');
         buttonRow.appendChild(el);
     }
+    const playpause = document.createElement('button');
+    playpause.innerText = 'P';
+    const buttonRow = document.getElementById('buttons');
+    buttonRow.appendChild(playpause);
+    let playing = true;
+    playpause.addEventListener('click', () => {
+        playing = !playing;
+        if (playing) {
+            sandbox.play();
+        } else {
+            sandbox.pause();
+        }
+    });
     addButton('1', nested);
 });
